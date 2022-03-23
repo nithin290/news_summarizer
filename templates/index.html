@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title>Deployment Tutorial 1</title>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../static/css/CSS.css">
+    
+    </head>
+
+    <body style="background: rgb(29, 29, 29);">
+        <center>
+            <div class="login">
+                <h1>Text summarizing</h1>
+
+<!--                 Main Input For Receiving Query to our ML -->
+                <form action="{{ url_for('generate')}}" method="post">
+<!--                    <input type="text" name="Title" placeholder="Title (optional)"/>-->
+                    <input type="text" name="Content" class="content" placeholder="content" required="required" />
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Generate summary</button>
+
+                    <h3>original text:</h3>
+                    <textarea name="original_text" id="original_text" cols="30" rows="18">{{ original_text }}</textarea>
+                    <h3>summary:</h3>
+                    <textarea name="summary" id="summary" cols="30" rows="10">{{ summary }}</textarea>
+                </form>
+            </div>
+        </center>
+    </body>
+    <script>
+        resizeIt = function() {
+          let str = $('original_text').value;
+          let cols = $('original_text').cols;
+
+          let linecount = 0;
+          $A(str.split("\n")).each( function(l) {
+              linecount += Math.ceil( l.length / cols );
+          })
+          $('original_text').rows = linecount + 1;
+        };
+
+        Event.observe('btn', 'click', resizeIt );
+
+        resizeIt(); //Initial on load
+    </script>
+</html>

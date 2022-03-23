@@ -1,0 +1,94 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+html {
+	width: 100%;
+	height:100%;
+}
+
+body {
+	width: 100%;
+	height:100%;
+	font-family: 'Helvetica';
+	background: rgb(0, 0, 0);
+	color: #fff;
+	font-size: 24px;
+	text-align:center;
+	letter-spacing:1.4px;
+	scroll-behavior: smooth;
+	overflow: scroll;
+	box-sizing: border-box;
+	word-wrap: break-word;
+
+}
+
+.login {
+	margin-top: 100px;
+	width: 800px;
+}
+
+.login h1 {
+	color: #fff;
+	text-shadow: 0 0 10px rgba(0,0,0,0.3);
+	letter-spacing:1px;
+	text-align:center;
+	word-wrap: break-word;
+}
+
+input {
+	width: 100%;
+	margin-bottom: 10px;
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+
+#original_text, #summary {
+	width: 100%;
+	margin-bottom: 10px;
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	word-wrap: break-word;
+	resize: vertical;
+}
+
+.btn {
+    margin-top: 20px;
+    background-color: #4caf4f;
+    color: white;
+    padding-top: 0px;
+    padding-bottom: opx;
+    width: 120px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.25s;
+    border: 0px;
+}
+
+.btn:hover {
+    background-color: #3c8b3e;
+}
+
+.btn:active {
+    background-color: #317033;
+    transform: scale(0.9);
+}
