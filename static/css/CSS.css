@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleVis.com/css?family=Open+Sans);
+@import url('https://fonts.googleapis.com/css?family=Pirata+One|Rubik:900');
 
 html {
 	width: 100%;
@@ -9,7 +10,7 @@ body {
 	width: 100%;
 	height:100%;
 	font-family: 'Helvetica';
-	background: rgb(0, 0, 0);
+	background: rgb(29, 29, 29);
 	color: #fff;
 	font-size: 24px;
 	text-align:center;
@@ -18,12 +19,16 @@ body {
 	overflow: scroll;
 	box-sizing: border-box;
 	word-wrap: break-word;
+	overflow-x: hidden;
+}
 
+.heading {
+    margin-top: 50px;
 }
 
 .login {
-	margin-top: 100px;
-	width: 800px;
+	margin-top: 150px;
+	width: 1400px;
 }
 
 .login h1 {
@@ -54,9 +59,15 @@ input {
 	transition: box-shadow .5s ease;
 }
 
-#original_text, #summary {
-	width: 100%;
-	margin-bottom: 10px;
+#input_text {
+    display: block;
+}
+
+#original_text, #summary, #input_text{
+	/* margin-top: 20px; */
+	width: 40%;
+	height: 200px;
+	/* margin-bottom: 10px;  */
 	background: rgba(0,0,0,0.3);
 	border: none;
 	outline: none;
@@ -65,13 +76,23 @@ input {
 	color: #fff;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 	border: 1px solid rgba(0,0,0,0.3);
-	border-radius: 4px;
+	border-radius: 10px;
 	word-wrap: break-word;
-	resize: vertical;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.1), 0 1px 1px rgba(255,255,255,0.2);
+	resize: none;
+	overflow: visible;
+	margin-bottom: 100px
 }
 
-.btn {
-    margin-top: 20px;
+#original_text {
+	float: left;
+}
+
+#summary {
+	float: right;
+}
+
+ .btn {
     background-color: #4caf4f;
     color: white;
     padding-top: 0px;

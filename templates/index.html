@@ -8,42 +8,46 @@
         <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="../static/css/CSS.css">
-    
+
+        <script>
+            resizeIt = function() {
+                if($('original_text').rows) > 10) {
+                    let str = $('original_text').value;
+                    let cols = $('original_text').cols;
+                    console.log(str);
+                    console.log(cols);
+
+                    let linecount = 0;
+                    $A(str.split("\n")).each( function(l) {
+                        linecount += Math.floor( (l.length) / cols ); // Take into account long lines
+                        console.log(linecount)
+                    })
+                    $('original_text').rows = linecount;
+                };
+            }
+
+            // You could attach to keyUp, etc. if keydown doesn't work
+            Event.observe('original_text', 'load', resizeIt );
+            Event.observe('summary', 'load', resizeIt );
+
+            resizeIt(); //Initial on load
+        </script>
+
     </head>
 
-    <body style="background: rgb(29, 29, 29);">
+    <body>
         <center>
+
+            <h1 class="heading">Text Summarizer</h1>
+
             <div class="login">
-                <h1>Text summarizing</h1>
-
-<!--                 Main Input For Receiving Query to our ML -->
                 <form action="{{ url_for('generate')}}" method="post">
-<!--                    <input type="text" name="Title" placeholder="Title (optional)"/>-->
-                    <input type="text" name="Content" class="content" placeholder="content" required="required" />
-                    <button type="submit" class="btn btn-primary btn-block btn-large">Generate summary</button>
-
-                    <h3>original text:</h3>
-                    <textarea name="original_text" id="original_text" cols="30" rows="18">{{ original_text }}</textarea>
-                    <h3>summary:</h3>
-                    <textarea name="summary" id="summary" cols="30" rows="10">{{ summary }}</textarea>
+                    <textarea name="input_text" id="input_text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="type here"></textarea>
+                    <textarea name="original_text" id="original_text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>{{original_text}}</textarea>
+                    <button class="btn" type="submit" onclick="generate(this)">Generate Summary</button>
+                    <textarea name="summary" id="summary" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>{{summary}}</textarea>
                 </form>
             </div>
         </center>
     </body>
-    <script>
-        resizeIt = function() {
-          let str = $('original_text').value;
-          let cols = $('original_text').cols;
-
-          let linecount = 0;
-          $A(str.split("\n")).each( function(l) {
-              linecount += Math.ceil( l.length / cols );
-          })
-          $('original_text').rows = linecount + 1;
-        };
-
-        Event.observe('btn', 'click', resizeIt );
-
-        resizeIt(); //Initial on load
-    </script>
 </html>
